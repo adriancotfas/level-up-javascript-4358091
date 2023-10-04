@@ -16,7 +16,20 @@
 
   <script>
     // Write your code here
-    
+    const elem = document.getElementById("clock");
+    let count = 0
+    const interval = setInterval( function ()  {
+      if (count > 10) {
+        clearInterval(interval);
+        return;
+      }
+      const d = new Date();
+      let hour = d.getHours();
+      let minute = d.getMinutes();
+      let second = d.getSeconds();
+      elem.innerHTML = `Time is: ${hour}:${minute}:${second}`;
+      count ++;
+    }, 1000);
   </script>
 </body>
 
