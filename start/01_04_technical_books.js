@@ -10,7 +10,6 @@ class Book {
   get availability() {
     return this.getAvailability();
   }
-
   // Method
   getAvailability() {
     if (this.numCopies === 0) {
@@ -29,5 +28,17 @@ class Book {
     this.numCopies += numCopiesStocked;
   }
 }
-
 // Write your code here
+class Edition extends Book {
+  constructor(title, author, ISBN, numCopies, edition) {
+    super(title, author, ISBN, numCopies);
+    this._edition = edition;
+  }
+  // Getter
+  get edition() {
+    return `The curren version of this book is ${this._edition} and it's in ${this.availability}`;
+  }
+}
+
+let myEdition = new Edition("Bock", "Adrian", "1231234", 5, "2018");
+console.log("myEdition: ", myEdition.edition);
