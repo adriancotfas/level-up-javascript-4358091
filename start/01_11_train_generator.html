@@ -16,7 +16,24 @@
 
   <script>
     // Write your code here
+  const elem = document.getElementById("next-stop");
 
+  function* logGenerator() {
+    yield "Poughkeepsie";
+    yield "Newburgh";
+    yield "Peekskill";
+    yield "Yonkers";
+    yield "Bronx";
+    yield "Grand Central";
+  }
+  const gen = logGenerator();
+  elem.onclick = function () { 
+    let station = gen.next().value
+    console.log(station);
+    if(station == "Grand Central"){
+      elem.disabled = true;
+    }
+};
   </script>
 </body>
 
